@@ -1,0 +1,4 @@
+{
+  "name": "galaxy-mini test agent",
+  "build": { "dockerfile": "Dockerfile" }
+}
