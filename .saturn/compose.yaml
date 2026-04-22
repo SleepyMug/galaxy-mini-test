@@ -1,0 +1,19 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: .saturn/Dockerfile
+    image: localhost/saturn-galaxy-mini-test:latest
+    container_name: saturn_galaxy-mini-test
+    init: true
+    working_dir: /root/galaxy-mini-test
+    command: ["sleep", "infinity"]
+    environment:
+      SATURN_IN_GUEST: "1"
+      SATURN_SOCK: /var/run/docker.sock
+      IS_SANDBOX: "1"
+    volumes:
+      - ..:/root/galaxy-mini-test
+      - ${HOME}/.claude:/root/.claude
+      - ${HOME}/.claude.json:/root/.claude.json
+      - ${HOME}/.config/gh:/root/.config/gh
